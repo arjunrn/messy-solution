@@ -12,14 +12,14 @@ func main() {
 	fmt.Scanf("%d", &numFloors)
 
 	controller := Controller{}
+	controller.floors = numFloors
 
 	for i := 0; i < numElevators; i++ {
-		controller.RegisterElevator(ElStatus{i, 0, make([]int, numFloors)})
+		controller.RegisterElevator(ElStatus{i, 0, make([]int, 0), 0, numFloors})
 	}
 
 	var input string
 
-	controller.run()
 	for true {
 		fmt.Println("Enter Your Choice")
 		fmt.Println("Summon Elevator(S) ; Step Forward(F) ; Print Status (P); Exit(X)")
